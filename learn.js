@@ -23,7 +23,6 @@ function eliminav(linha){//troca as virgulas que estão como elementos de string
 		}
 	}
 	var var1= linha1.join('');
-	//console.log(var1);
 	return var1;
 	
 }
@@ -31,13 +30,10 @@ function eliminav(linha){//troca as virgulas que estão como elementos de string
 
 function ArrumaHeaderRepetido(csv){//se tiver colunas iguais, ele merge com '/'
 	var linhas = csv.split("\n");
-	//console.log(linhas);
 	var nlinhas = linhas.length;
 	var newcsv=[]
-	//console.log(nlinhas);
 	var arq = [];
 	var header = linhas[0].split(",");
-	//console.log(header);
 	var contadorderepetidos = [];
 	var tam = header.length;
 	for(i=0;i<tam-1;i++){
@@ -53,23 +49,14 @@ function ArrumaHeaderRepetido(csv){//se tiver colunas iguais, ele merge com '/'
 				}
 				header[tam-1] ='';
 				newcsv = header.join(',');
-				//console.log(newcsv);
-				//console.log(arq);
-
 				for(k=1;k<nlinhas;k++){
 					var coluna = linhas[k].split(",");
-					//console.log(coluna);
 					coluna[i]= coluna[i].concat(" / ");
 					coluna[i]=coluna[i].concat(coluna[j]);
-					//console.log(i);
-					//console.log(j);
-					//console.log(coluna);
 					for(m=j;m<tam-1;m++){
 							coluna[m] = coluna[m+1];
 					}
-					//console.log(coluna);
 					coluna[tam-1]='';
-					//console.log(coluna);
 					var coluna1 = coluna.join(',');
 					newcsv = newcsv.concat('\n');
 					newcsv = newcsv.concat(coluna1);
@@ -91,41 +78,31 @@ function ArrumaLinhasRepetidas(csv, pos){//elimina linhas com o id descrito em p
 		var linecmp1 = linhas[i].split(",");
 		var ncol = linecmp1.length;
 		var idcmp1 = linecmp1[pos];
-		//console.log(idcmp1);
 		for(j=i+1;j<nlinhas;j++){
 			var linecmp2 = linhas[j].split(",");
 			var idcmp2 = linecmp2[pos];
-			//console.log(idcmp2);
-			//console.log('\n');
 			if(idcmp2 == idcmp1 && idcmp1 != ''){
-				//console.log('same id');
 				for(k=0;k<pos;k++){
 					var cmp1 = linecmp1[k];
 					var cmp2 = linecmp2[k];	
-					//console.log(cmp1);
-					//console.log(cmp2);
 					if(cmp1 == cmp2){
-						//console.log('igual elemento');
 					}
 					else{
 						cmp1 = cmp1.concat("/");
 						cmp1 = cmp1.concat(cmp2);
 						linecmp1[k] = cmp1;
-						//console.log(cmp1);
 					}
 				}
 				for(k=pos+1;k<ncol;k++){
 					var cmp1 = linecmp1[k];
 					var cmp2 = linecmp2[k];
 					if(cmp1 == cmp2){
-					//console.log('igual elemento');
 					
 					}
 				else{	//console.log('elementos diferentes')
 						cmp1 = cmp1.concat("/");
 						cmp1 = cmp1.concat(cmp2);
 						linecmp1[k] = cmp1;
-						//console.log(linecmp1[k]);
 					}
 					
 				}
@@ -138,7 +115,6 @@ function ArrumaLinhasRepetidas(csv, pos){//elimina linhas com o id descrito em p
 			
 			linhas[i] = linecmp1.join(',');
 			linhas[j] = linecmp2.join(',');
-			//console.log(linhas[i]);
 			}
 			
 		}
@@ -160,12 +136,9 @@ function isemail(string){
 
 function tiraespacoemail(string){//retorna o email sem caracteres apos um ' ' onde deveria ser o dominio de email
 	var s = string.split('@');
-	//console.log(s);
 	var x = s[1].split(' ');
-	//console.log(x);
 	var email = s[0].concat('@');
 	email = email.concat(x[0]);
-	//console.log(email);
 	return email;
 }
 
@@ -245,15 +218,12 @@ function Arruma(csv){//organiza no formato de objeto desejado, não inclue addre
 			var head=headers[j];
 			var celula1 = col[j].split("/");
 			celula1 = celula1.filter(function(entry){return entry.trim() != '';});
-			//console.log(celula1);
 			for(m=0;m<celula1.length;m++){
 				var h1 = {}
-				//console.log(celula1[m]);
 				str = celula1[m].trim();
 				celula1[m] = str;
 				if(str==null || isEmpty(str)){}
 				else{
-					//console.log(str);
 					if(headers[j].includes(phone)){
 						var x1 = telephone(str);
 						var sub1= headers[j].replace(phone,"");
@@ -263,7 +233,6 @@ function Arruma(csv){//organiza no formato de objeto desejado, não inclue addre
 						h1['address']=x1;
 						if(x1 !==''){
 						addr.push(h1);}	
-						//console.log(h1);
 					}
 					else{
 						if(headers[j].includes(email)){
@@ -275,7 +244,6 @@ function Arruma(csv){//organiza no formato de objeto desejado, não inclue addre
 							x = tiraespacoemail(str)
 							h1['address']=x;
 							addr.push(h1);}
-							//console.log(h1);
 						}
 						else{
 							key=head;
@@ -294,16 +262,14 @@ function Arruma(csv){//organiza no formato de objeto desejado, não inclue addre
 						}
 					}
 						
-				}//console.log(addr);
+				}
 				
 			}
 		}
 		var str2 = JSON.stringify(addr);
-		//console.log(str2);
 		var finalData = str2.replace(/\\/g, "");
 		obj['addresses']=finalData;
 		result.push(obj)
-		//console.log(result);
 		}
 	}
 	
