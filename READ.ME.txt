@@ -1,0 +1,15 @@
+apenas usando fs de biiblioteca extra,
+
+Checagem de numero é brasileira, aceitando xx xxxxxxxx, (xx) xxxxxxxxx , 
+ele checa se for numero de celular(9digitos) ou casa (8) e checa se celular comeca com 6-9, e casa comeca n<6
+
+email: checa se tem o @ e se nao tem espaco depois do arroba(dominio)
+
+Hard Tag para checagem de email e telefone são as tags 'phone', e 'email' na tabela
+'see_all' e 'invisible' foram hard coded, para poder usar o valor falso como inicial, email e phone tambem são palavras chaves hard coded, tags e o resto são variaveis.
+
+foi considerada a coluna 2 da tabela( tabela[1]) como chave da tabela, mas se quiser mudar a chave , na chamada de função :
+ArrumaLinhasRepetidas(obj,pos) é passado parametro pos, que é a posição da chave da tabela e deveria ser unica.
+
+Após temos a formatação no formato .Json em Arruma(obj);
+
