@@ -16,6 +16,7 @@ foi considerada a coluna 2 da tabela(tabela[1]) como chave da tabela, mas se qui
 ArrumaLinhasRepetidas(obj,pos) é passado parametro pos, que é a posição da chave da tabela e deveria ser unica.
 
 Descrição das funções: 
+
 1)eliminav elimina virgulas em elementos da tabela, substituindo por '/'
 
 2)ArrumaHeaderRepetido: observa o nome das colunas, e se houverem nomes iguais ele junta essas colunas em todas as linhas com '/'
