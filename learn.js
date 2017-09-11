@@ -311,7 +311,7 @@ function Arruma(csv){//organiza no formato de objeto desejado, não inclue addre
 }
 
 
-
+function main(){
 var fs = require('fs');	
 var input =fs.readFileSync('input.csv','utf8',function(err,data){
 	});//le o input
@@ -329,8 +329,6 @@ var final4 = JSON.stringify(final3, null,'\t');//transforma em string para passa
 var finalData = final4.replace(/\\/g, "");
 fs.writeFile("output.json",finalData,'utf8',function(err){
 if(err){return console.log(err);}else{console.log("salvo em output.json")}});
+}
 
-
-
-//console.log(final3);
-
+main();
