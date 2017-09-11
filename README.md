@@ -1,6 +1,12 @@
 # ClassApp
 script para realização do desafio
 
+Como usar, apenas rode o script com o arquivo input.csv na mesma pasta
+-> node learn.js
+
+
+Realização:
+
 Telefone:
 Checagem de numero  brasileiro, aceitando xx xxxxxxxx, (xx) xxxxxxxxx , 
 ele checa se for numero de celular(9digitos) ou casa (8) após a extração do ddd , e checa se celular comeca com 6-9,
@@ -17,7 +23,7 @@ ArrumaLinhasRepetidas(obj,pos) é passado parametro pos, que é a posição da c
 
 Descrição das funções: 
 
-1)eliminav elimina virgulas em elementos da tabela, substituindo por '/'
+1)Eliminav elimina virgulas em elementos da tabela, substituindo por '/'
 
 2)ArrumaHeaderRepetido: observa o nome das colunas, e se houverem nomes iguais ele junta essas colunas em todas as linhas com '/'
 
